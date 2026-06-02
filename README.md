@@ -1,9 +1,11 @@
-# LangChain agent example
+# LLM agent with LangChain and MCP
 
-This repository contains a very simple example of implementing an LLM agent. The example agent
-calls the `guess_number` tool until it guesses correctly the randomly generated secret number.
-While the script may not be especially useful in itself, it can be easily adapted for more
-meaningful tasks by providing it with another tool.
+This repository contains a simple example of implementing an LLM agent using LangChain and MCP. The
+agent calls the `generate_number` tool to generate a random number, and then the `guess_number`
+tool until it guesses the correct number.
+
+While the agent may not be especially useful in itself, it can be easily adapted for other, more
+meaningful tasks.
 
 ## Usage
 
@@ -14,7 +16,7 @@ real ones.
 cp .env.example .env
 ```
 
-Create a Python virtual environment and install the project.
+Create a Python virtual environment and install dependencies.
 
 ```bash
 python3 -m venv .venv
@@ -22,8 +24,8 @@ python3 -m venv .venv
 pip install -r requirements.txt
 ```
 
-Run the example script.
+Run the client script.
 
 ```bash
-python3 example.py
+python3 src/client.py
 ```
