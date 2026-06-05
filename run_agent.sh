@@ -10,6 +10,8 @@
 
 CONTAINER=/appl/local/laifs/containers/lumi-multitorch-latest.sif
 
+mkdir -p logs slurm
+
 module purge && module load Local-LAIF lumi-aif-singularity-bindings
 
 if [[ ! -d .venv ]]; then
