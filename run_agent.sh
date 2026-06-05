@@ -10,7 +10,7 @@
 
 CONTAINER=/appl/local/laifs/containers/lumi-multitorch-latest.sif
 
-mkdir -p logs slurm
+mkdir -p logs
 
 module purge && module load Local-LAIF lumi-aif-singularity-bindings
 
