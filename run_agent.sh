@@ -6,6 +6,7 @@
 #SBATCH --cpus-per-task=7
 #SBATCH --mem-per-gpu=60G
 #SBATCH --time=00:30:00
+#SBATCH --output=slurm/slurm-%j.out
 
 CONTAINER=/appl/local/laifs/containers/lumi-multitorch-latest.sif
 
