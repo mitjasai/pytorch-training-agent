@@ -1,4 +1,4 @@
-# Agentic PyTorch training on LUMI
+# Agentic PyTorch hyperparameter tuning on LUMI
 
 This repository contains an example of using an LLM agent to optimize the hyperparameters of a
 PyTorch training job on LUMI.
