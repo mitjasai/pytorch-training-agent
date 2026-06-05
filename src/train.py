@@ -1,3 +1,6 @@
+# Adapted from:
+# https://github.com/pytorch/tutorials/blob/326edb0/beginner_source/basics/quickstart_tutorial.py
+
 import argparse
 
 import torch
