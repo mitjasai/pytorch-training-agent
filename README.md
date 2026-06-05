@@ -3,12 +3,19 @@
 This repository contains an example of using an LLM agent to optimize the hyperparameters of a
 PyTorch training job on LUMI.
 
+The agent runs in the context of one GPU job, where it completes `-n, --runs` consecutive training
+runs, updating the hyperparameters after each run, and finally reports the optimal configuration.
+
+The training script used in this example is from the
+[PyTorch quickstart tutorial](https://docs.pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html).
+
 ## Usage
 
 Copy the included `.env.example` to `.env` and replace the example values in the latter file with
 those corresponding to your endpoint and model. The default values assume you are serving
-`google/gemma-4-31b-it` through an unauthenticated vLLM endpoint. If you want to go the vLLM route,
-you can use the CSC-provided example script for
+`google/gemma-4-31b-it` through an unauthenticated vLLM endpoint.
+
+If you want to go the vLLM route, you can use the CSC-provided example script for
 [running vLLM on LUMI](https://github.com/CSCfi/ai-inference-examples/blob/master/run-vllm-lumi4.sh).
 
 ```bash
