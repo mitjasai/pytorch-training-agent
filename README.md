@@ -10,11 +10,11 @@ approach, see, e.g., Section 2 of [Gencoglu et al. (2019)](https://arxiv.org/pdf
 agent runs in the context of one GPU job, where it completes $n$ consecutive training runs,
 updating the hyperparameters after each run, and finally reports the optimal configuration.
 
-The agent (`src/agent.py`) is implemented using the
+The [agent program](src/agent.py) is implemented using the
 [LangChain](docs.langchain.com/oss/python/langchain/overview) framework. It trains models by
-calling the `main` function of the training script (`src/train.py`) through an MCP server
-(`src/mcp_server.py`). The training script used in this example is adapted (with minimal changes)
-from the
+calling the `main` function of the [training script](src/train.py) through an
+[MCP server](src/mcp_server.py). The training script used in this example is adapted (with minimal
+changes) from the
 [PyTorch quickstart tutorial](https://docs.pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html).
 
 ## Usage
