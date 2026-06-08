@@ -1,9 +1,10 @@
-from pathlib import Path
 from contextlib import redirect_stdout, redirect_stderr
-
 from mcp.server.fastmcp import FastMCP
+from pathlib import Path
 
 from train import main as trainer
+
+LOG_DIR = Path("logs")
 
 mcp = FastMCP("PyTorch Trainer")
 
@@ -21,8 +22,9 @@ def train_model(batch_size: int = 64, lr: float = 1e-3, epochs: int = 5) -> str:
     Returns:
         Path to log file of completed training run
     """
+    LOG_DIR.mkdir(exist_ok=True)
 
-    log_file = f"logs/batch_size_{batch_size}_lr_{lr}_epochs_{epochs}.log"
+    log_file = LOG_DIR / f"batch_size_{batch_size}_lr_{lr}_epochs_{epochs}.log"
 
     with open(log_file, mode="w", buffering=1) as f:
         with redirect_stdout(f), redirect_stderr(f):
@@ -39,7 +41,7 @@ def list_logs() -> list:
     Returns:
         List of log files
     """
-    return [str(p) for p in Path("logs").glob("*")]
+    return [str(p) for p in LOG_DIR.glob("*")]
 
 
 @mcp.tool()
