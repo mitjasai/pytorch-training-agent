@@ -1,12 +1,13 @@
 # Agentic PyTorch hyperparameter tuning on LUMI
 
 This repository contains an example of using an LLM agent to optimize the hyperparameters of a
-PyTorch training job on LUMI. The approach taken by the agent is "grad student descent", i.e.,
-choosing the hyperparameters manually and in an ad-hoc manner. For a description of the approach,
-see, e.g., Section 2 of [Gencoglu et al. (2019)](https://arxiv.org/pdf/1904.07633).
+PyTorch training job on LUMI.
 
-The agent runs in the context of one GPU job, where it completes $n$ consecutive training
-runs, updating the hyperparameters after each run, and finally reports the optimal configuration.
+The approach taken by the agent is "grad student descent", i.e., choosing the hyperparameters
+manually and in an ad-hoc manner. For a description of the approach, see, e.g., Section 2 of
+[Gencoglu et al. (2019)](https://arxiv.org/pdf/1904.07633). The agent runs in the context of one
+GPU job, where it completes $n$ consecutive training runs, updating the hyperparameters after each
+run, and finally reports the optimal configuration.
 
 The training script used in this example is from the
 [PyTorch quickstart tutorial](https://docs.pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html).
