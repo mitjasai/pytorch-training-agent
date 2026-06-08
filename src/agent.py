@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-async def main(runs: int = 3):
+async def main(prompt: str):
     # Initialize chat model
     chat_model = ChatOpenAI(
         model=os.environ["MODEL"],
@@ -38,21 +38,9 @@ async def main(runs: int = 3):
     # Initialize agent
     agent = create_agent(model=chat_model, tools=tools)
 
-    # Define input message
-    input_message = {
-        "role": "user",
-        "content": (
-            "Use the provided tools to find an optimal set of hyperparameters for training a "
-            "PyTorch image recognition model. You should do this by completing a maximum of "
-            f"{runs} training run(s) in a consecutive fashion. After each run, inspect the "
-            "training log to choose the next set of hyperparameters. Finally, report the optimal "
-            "set of hyperparameters."
-        ),
-    }
-
     # Prompt agent to complete provided task
     async for chunk in agent.astream(
-        {"messages": [input_message]},
+        {"messages": [{"role": "user", "content": prompt}]},
         stream_mode="updates",
         version="v2",
     ):
@@ -75,7 +63,7 @@ async def main(runs: int = 3):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-n", "--runs", type=int, default=3, help="Number of training runs")
+    parser.add_argument("prompt", type=str)
     args = parser.parse_args()
 
     asyncio.run(main(**vars(args)))

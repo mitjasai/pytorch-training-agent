@@ -1,0 +1,1 @@
+Use the provided tools to find an optimal set of hyperparameters for training a PyTorch image recognition model. You should do this by completing a maximum of {runs} training run(s) in a consecutive fashion. After each run, inspect the training log to choose the next set of hyperparameters. Finally, report the optimal set of hyperparameters.
